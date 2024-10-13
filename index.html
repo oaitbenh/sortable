@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Data Organizer</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212; /* Black background */
+        }
+    
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1a1a; /* Dark gray container */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow */
+        }
+    
+        h1 {
+            color: #ff9800; /* Orange header */
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+    
+        .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    
+        input,
+        select {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+    
+        input::placeholder {
+            color: #ccc;
+        }
+    
+        select {
+            cursor: pointer;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1a1a1a;
+        }
+    
+        th,
+        td {
+            border: 1px solid #444; /* Darker border */
+            padding: 12px;
+            text-align: left;
+            color: #fff;
+        }
+    
+        th {
+            background-color: #ff9800; /* Orange header for table */
+            color: #1a1a1a; /* Dark text for contrast */
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
+        th:hover {
+            background-color: #e68900; /* Slightly darker orange on hover */
+        }
+    
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%; /* Make images round */
+        }
+    
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px;
+            background-color: #ff9800; /* Orange buttons */
+            color: #1a1a1a; /* Dark text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    
+        .pagination button:hover {
+            background-color: #e68900; /* Slightly darker on hover */
+        }
+    
+        .pagination button:disabled {
+            background-color: #444; /* Disabled buttons have darker background */
+            cursor: not-allowed;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Superhero Data Organizer</h1>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search by name">
+            <select id="pageSize">
+                <option value="10">10 per page</option>
+                <option value="20" selected>20 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+                <option value="all">All results</option>
+            </select>
+        </div>
+        <table id="heroTable">
+            <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th data-sort="name">Name</th>
+                    <th data-sort="fullName">Full Name</th>
+                    <th data-sort="powerstats">Powerstats</th>
+                    <th data-sort="race">Race</th>
+                    <th data-sort="gender">Gender</th>
+                    <th data-sort="height">Height</th>
+                    <th data-sort="weight">Weight</th>
+                    <th data-sort="placeOfBirth">Place Of Birth</th>
+                    <th data-sort="alignment">Alignment</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <script src="sortable.js"></script>
+</body>
+
+</html>

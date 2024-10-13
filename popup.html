@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Data Organizer</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        /* Existing CSS goes here */
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content button {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #e68900;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: black;">
+    <div class="modal" id="ageModal">
+        <div class="modal-content">
+            <h2>Are you over 18 years old?</h2>
+            <a href="/index.html" style="text-decoration: none; color: #1a1a1a;"></a><button id="yesButton">Yes</button></a>
+            <button id="noButton">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent">
+        <center>
+            <h1 style="margin-top: 45vh;color: #e68900;">You Must Have 18-Yo to see This Website</h1>
+        </center>
+    </div>
+    <script src="sortable.js"></script>
+    <script>
+        document.getElementById("mainContent").style.display = "none";
+        window.onload = function () {
+            document.getElementById("ageModal").style.display = "flex";
+        };
+        document.getElementById("noButton").addEventListener("click", function () {
+            document.getElementById("ageModal").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            
+        });
+        document.getElementById("yesButton").addEventListener("click", function () {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>
